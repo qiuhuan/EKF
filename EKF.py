@@ -110,7 +110,8 @@ def ekf_estimation(xEst, PEst, z, u):
 
     #  Predict
     xPred = motion_model(xEst, u)
-    jF = jacobF(xPred, u)
+    #jF = jacobF(xPred, u)
+    jF = jacobF(xEst, u)   # modified
     PPred = jF * PEst * jF.T + Q
 
     #  Update
